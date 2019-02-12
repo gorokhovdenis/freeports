@@ -1,0 +1,20 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+
+  vars:
+    cli:
+      host: "{{ inventory_hostname }}"
+      username: gorohov
+      password: telecom1
+
+  tasks:
+  - name: ssh,login and execute command
+    ios_command: 
+      provider: "{{ cli }}"
+      commands: sho interface status | i not
+    register: result
+
+  - name: Debug registered var
+    debug: var=result.stdout_lines

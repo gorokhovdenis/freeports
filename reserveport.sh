@@ -39,7 +39,7 @@ fi
 read -r -p "save config? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
 then
-        ansible all -m ios_command -a "username=$usr password=$pass commands='write memory'"  -i $ip -c local
+    ansible all -m ios_command -a "username=$usr password=$pass commands='write memory'"  -i $ip -c local
 else
-	:
+    :
 fi

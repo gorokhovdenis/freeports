@@ -7,4 +7,4 @@ Search & reserve free ports on Cisco switches with an API request to Cisco Prime
 
 Requirements
 ------------
-Linux required
+Requires Linux & Ansible

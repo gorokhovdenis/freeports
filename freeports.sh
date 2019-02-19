@@ -1,0 +1,17 @@
+#!/bin/bash
+export ANSIBLE_HOST_KEY_CHECKING=False
+echo enter username
+read usr
+echo enter password
+read -s pass
+echo enter device Ip Address
+read ip
+curl -s -k -u $usr:$pass "https://172.17.1.205/webacs/api/v4/data/Clients.json?.full=true&deviceIpAddress=$ip&associationTime=gt(1529278666381)" | python -m json.tool | grep -P '(?<=clientInterface":).*$' -o
+ansible-playbook ports.yml -i "$ip," --vault-password-file=./.vault_pass
+read -r -p "reserve ports? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+        bash reserveport.sh
+else
+	:
+fi

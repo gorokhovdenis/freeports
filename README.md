@@ -7,3 +7,4 @@ Search for free port on switches
 Requirements
 ------------
 sudo apt install ansible
+sudo apt install python3.6

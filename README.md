@@ -6,4 +6,4 @@ Search for free port on switches
 
 Requirements
 ------------
-Linux required
+sudo apt install ansible

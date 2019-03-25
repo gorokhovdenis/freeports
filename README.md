@@ -7,5 +7,5 @@ Search & reserve free ports on Cisco switches with an API request to Cisco Prime
 
 Requirements
 ------------
-sudo apt install ansible
-sudo apt install python3.6
+- ansible
+- python3.6
